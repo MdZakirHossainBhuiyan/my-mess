@@ -28,11 +28,10 @@
     <div class="nav_top">
         Manager: <?php echo $_SESSION['fname'] ?>
         <a href="manager_index.php">deshboard</a>
-        <a href="#">contact</a>
+        <a href="contact_manager.php">Contact</a>
         <a href="view_meal.php">meal</a>
         <a href="view_bazar.php">bazar</a>
         <a href="member_info.php">member</a>
-        <a href="#">mess info</a>
         <a href="logout.php">logout</a>
     </div>
     <div class="manager_info">

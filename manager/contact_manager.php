@@ -5,11 +5,11 @@ $user_name = $_SESSION['uname'];
 $mid = $_SESSION['mid'];
 
 if(isset($_GET['del'])){
-    $user_n = $_GET['del'];
+    $id = $_GET['del'];
     
     $con = mysqli_connect("localhost","root","","demo");
     
-    $sql = "Delete from member where user_name = '$user_n' AND mess_id = '$mid'";
+    $sql = "update contact SET status='read' WHERE id='$id'";
     
     $query = mysqli_query($con,$sql);    
 }
@@ -21,14 +21,14 @@ if(isset($_GET['del'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mess Management System</title>
-    <link rel="stylesheet" href="css/member_info.css">
+    <link rel="stylesheet" href="css/contact_manager_style.css">
     <link rel="icon" href="../images/mess_logo.png" type="image/icon">
 </head>
 <body>
     <div class="nav_top">
         Manager: <?php echo $_SESSION['fname'] ?>
         <a href="manager_index.php">deshboard</a>
-        <a href="contact_manager.php">Contact</a>
+        <a href="contact_manager.php">contact</a>
         <a href="view_meal.php">meal</a>
         <a href="view_bazar.php">bazar</a>
         <a href="member_info.php">member</a>
@@ -69,44 +69,35 @@ if(isset($_GET['del'])){
             <button><a href="#">edit info</a></button>
             <button><a href="member_registration.php">add member</a></button>
     </div>
-    <div class="view_part">
-        <div class="header">
-            <h1>Member list</h1>
-        </div>
-        <div class="view_point">
+    <section class="mail-area">
+        <div class="view-mail">
+            <h2>CHECK <span class="text-highlighter"> LATEST </span> MAIL</h2>
             <?php
                 $con = mysqli_connect("localhost","root","","demo");
-                $sql = "select user_name, full_name, email, phone from member where mess_id = '$mid'";
-                $query = mysqli_query($con,$sql);
-                $count = 0;
-            ?>
-            <table id="tables">
-                <tr>
-                    <th>Serial No.</th>
-                    <th>User Name</th>
-                    <th>Full Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Action</th>
-                </tr>
-            <?php
-                while($row = mysqli_fetch_assoc($query))
+                $status = "Unread";
+                $sql = "select * from contact where status = '$status' and mess_id = '$mid' order by id";
+                $query =  mysqli_query($con, $sql);
+                $result = mysqli_num_rows($query);
+                if($result > 0)
                 {
-                    $count = $count+1;
-                    echo "<tr>";
-                        echo "<td>".$count."</td>";
-                        echo "<td>".$row['user_name']."</td>";
-                        echo "<td>".$row['full_name']."</td>";
-                        echo "<td>".$row['email']."</td>";
-                        echo "<td>".$row['phone']."</td>";
+                    while($row = mysqli_fetch_assoc($query))
+                    {
+                        echo "<div class='mail-card'>";
+                            echo "Date: ".$row['date']."<br>"."<br>";
+                            echo "Name: ".$row['full_name']."<br>";
+                            echo "Email: ".$row['email']."<br>"."<br>";
+                            echo "Subject: ".$row['subject']."<br>"."<br>";
+                            echo $row['message']."<br>"."<br>";
                         ?>
-                        <td><a href="member_info.php?del=<?php echo $row["user_name"];?>">Delete</a></td>
+                            <a href="contact_manager.php?del=<?php echo $row['id'];?>">Mark as read</a>
                         <?php
-                    echo "</tr>";
+                        echo "</div>";
+                    }
                 }
+                else
+                    echo "There is no unread mail";
             ?>
-            </table>
         </div>
-    </div>
+    </section>    
 </body>
 </html>
