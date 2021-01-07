@@ -1,3 +1,20 @@
+<?php
+session_start();
+
+$user_name = $_SESSION['uname'];
+$mid = $_SESSION['mid'];
+
+if(isset($_GET['del'])){
+    $user_n = $_GET['del'];
+    
+    $con = mysqli_connect("localhost","root","","demo");
+    
+    $sql = "Delete from member where user_name = '$user_n' AND mess_id = '$mid'";
+    
+    $query = mysqli_query($con,$sql);    
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +25,6 @@
     <link rel="icon" href="../images/mess_logo.png" type="image/icon">
 </head>
 <body>
-    <?php session_start(); 
-        $user_name = $_SESSION['uname'];
-        $mid = $_SESSION['mid'];
-    ?>
-
     <div class="nav_top">
         Manager: <?php echo $_SESSION['fname'] ?>
         <a href="manager_index.php">deshboard</a>
@@ -45,10 +57,6 @@
                     <th>Mess id: </th>
                     <td> <?php echo $_SESSION['mid']?></td>
                 </tr>
-                <!--<tr>
-                    <th>Mess name: </th>
-                    <td> <?php //echo $_SESSION['mid']?></td>
-                </tr>-->
                 <tr>
                     <th>Email: </th>
                     <td> <?php echo $row['email']?></td>
@@ -93,7 +101,7 @@
                         echo "<td>".$row['email']."</td>";
                         echo "<td>".$row['phone']."</td>";
                         ?>
-                        <td><a href="#">Delete</a></td>
+                        <td><a href="member_info.php?del=<?php echo $row["user_name"];?>">Delete</a></td>
                         <?php
                 }
             ?>

@@ -15,8 +15,8 @@
     <div class="nav_top">
         Manager: <?php echo $_SESSION['fname'] ?>
         <a href="manager_index.php">deshboard</a>
-        <a href="#">notification</a>
-        <a href="#">meal</a>
+        <a href="#">contact</a>
+        <a href="view_meal.php">meal</a>
         <a href="#">bazar</a>
         <a href="member_info.php">member</a>
         <a href="#">mess info</a>
@@ -44,10 +44,6 @@
                     <th>Mess id: </th>
                     <td> <?php echo $_SESSION['mid']?></td>
                 </tr>
-                <!--<tr>
-                    <th>Mess name: </th>
-                    <td> <?php //echo $_SESSION['mid']?></td>
-                </tr>-->
                 <tr>
                     <th>Email: </th>
                     <td> <?php echo $row['email']?></td>
@@ -61,6 +57,9 @@
             <button><a href="#">edit info</a></button>
             <button><a href="member_registration.php">add member</a></button>
     </div>
+    <section>
+    
+    </section>
 
     <?php
         echo "Welcome Mr. ".$_SESSION['fname'].". Your mess id ".$_SESSION['mid']." and as a manager your user name is ".$_SESSION['uname']."<br>";
