@@ -60,7 +60,7 @@
             </table>
 
             <button><a href="#">edit info</a></button>
-            <button><a href="member_registation.php">add member</a></button>
+            <button><a href="member_registration.php">add member</a></button>
     </div>
     <div class="view_part">
         <div class="header">

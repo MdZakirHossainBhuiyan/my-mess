@@ -20,7 +20,7 @@ function checkemail($mail){
 }
 
 // define variables and set to empty values
-$errorUname = $errorEmail = "";
+$errorUname = $errorEmail = $report = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $u_name = checkUserName($_POST['uname']);
@@ -51,7 +51,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             if($query)
             {
-                header("location:login.php");
+                $report = "Member Added";
+                header("location:member_registration.php");
             }
             else
             {
@@ -75,19 +76,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mess Management System</title>
-    <link rel="icon" href="images/mess_logo.png" type="image/icon">
-    <link rel="stylesheet" href="css/style_registration.css">
+    <link rel="icon" href="../images/mess_logo.png" type="image/icon">
+    <link rel="stylesheet" href="css/member_registration_style.css">
 </head>
 <body>
     <div class="left_card">
-        <img src="images/mess_logo.png" alt="logo">
+        <img src="../images/mess_logo.png" alt="logo">
         <h1>mess management system</h1>
         <p>"Make mess life easy and beautiful by bypassing annoyance!"</p>
     </div>
     <div class="right_card">
-        <form method="POST" action="registration.php" class="form_style">
+        <form method="POST" action="member_registration.php" class="form_style">
             <fieldset>
-                <legend>man reg.</legend><br>
+                <legend>member reg.</legend><br>
+                <span><?php echo $report; ?></span>
                 <label for="uname">user Name:</label><br>  <!-- uname = user_name -->
                 <input type="uname" name="uname" id="uname" placeholder="User Name..." required><br>
                 <span class="error"> <?php echo $errorUname."<br>";?></span>
@@ -107,7 +109,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                 <input class="submit" type="submit" name="submit" value="Registration">
 
-                <br><a href="index.php">Back to HOME</a>
+                <br><a href="manager_index.php">Back to HOME</a>
             </fieldset><br>
         </form>
     </div>
