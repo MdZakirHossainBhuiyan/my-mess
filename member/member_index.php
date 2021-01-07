@@ -40,11 +40,14 @@
         $con = mysqli_connect("localhost","root","","demo");
         $sql = "select price from bazar where user_name = '$user_name' and mess_id = '$mess_id'";
         $query = mysqli_query($con, $sql);
+        $check = mysqli_num_rows($query);
         while($row = mysqli_fetch_assoc($query)){
             $cost = $cost + $row['price'];
         }
 
-        return $cost;
+        if($check>0){
+            return $cost;
+        }
     }
     
     function MyMealFunction($user_name, $mess_id){

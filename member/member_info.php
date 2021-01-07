@@ -160,7 +160,7 @@
                         $bill = $TotalMealRate*$total_meal;
                         $final_bill = $total_deposit - $bill;
 
-                        echo "<td>".$final_bill."/-"."</td>";
+                        echo "<td>".round($final_bill, 3)."/-"."</td>";
                     echo "</tr>";
                 }
             ?>

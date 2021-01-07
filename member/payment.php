@@ -8,9 +8,10 @@
         $sql = "select user_name from payment where user_name = '$user_name'";
     
         $query = mysqli_query($con, $sql);
+        $check = mysqli_num_rows($query);
         $row = mysqli_fetch_assoc($query);
-    
-        return $row['user_name'];
+        if($check > 0)
+            return $row['user_name'];
     }
 
     $report = "0";

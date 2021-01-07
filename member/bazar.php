@@ -6,10 +6,16 @@
     function validity($data){
         $todays_date = date("yy-m-d H:i:s");
 
-        if($data <= $todays_date)
+        if($data <= $todays_date){
+            $date = 0;
+            $todays_date = 0;
             return TRUE;
-        else
+        }
+        else{
+            $date = 0;
+            $todays_date = 0;
             return FALSE;
+        }
     }
 
     function cost_calculation($user_name){
@@ -56,8 +62,8 @@
                 $report = "no";
             }
         }
-        else{
-            $validityError = "Select a future date.";
+        elseif($valid_date == FALSE){
+            $validityError = "Future date not acceptable.";
         }
     }
 ?>

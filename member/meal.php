@@ -7,7 +7,7 @@
 
         $todays_date = date("y-m-d H:i:s");
 
-        if($data > $todays_date)
+        if($data < $todays_date)
         {
             return TRUE;
         }
@@ -23,9 +23,11 @@
         $sql = "select * from meal where user_name = '$name' AND date = '$data' limit 1";
     
         $query = mysqli_query($con, $sql);
+        $check = mysqli_num_rows($query);
         $row = mysqli_fetch_assoc($query);
     
-        return $row['user_name'];
+        if($check>0)
+            return $row['user_name'];
     }
 
     $report = "string";
