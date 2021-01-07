@@ -12,9 +12,10 @@
         $subject = $_POST['subject'];
         $message = $_POST['message'];
         $date = date("y-m-d H:i:s");
+        $status = "Unread";
 
         $con = mysqli_connect("localhost","root","","demo");
-        $sql = "insert into contact (`user_name`,`mess_id`,`full_name`,`phone`,`email`,`message`,`date`,`subject`) values ('$user_name','$mess_id','$full_name','$phone','$email','$message','$date','$subject')";
+        $sql = "insert into contact (`user_name`,`mess_id`,`full_name`,`phone`,`email`,`message`,`date`,`subject`,`status`) values ('$user_name','$mess_id','$full_name','$phone','$email','$message','$date','$subject','$status')";
 
         $query=mysqli_query($con, $sql);
         if($query){
