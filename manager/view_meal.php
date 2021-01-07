@@ -30,7 +30,7 @@
         <a href="manager_index.php">deshboard</a>
         <a href="#">contact</a>
         <a href="view_meal.php">meal</a>
-        <a href="#">bazar</a>
+        <a href="view_bazar.php">bazar</a>
         <a href="member_info.php">member</a>
         <a href="#">mess info</a>
         <a href="logout.php">logout</a>
