@@ -20,7 +20,7 @@
         <a href="#">meal</a>
         <a href="#">bazar</a>
         <a href="member_info.php">member</a>
-        <a href="#">mess</a>
+        <a href="#">mess info</a>
         <a href="logout.php">logout</a>
     </div>
     <div class="manager_info">
@@ -60,7 +60,7 @@
             </table>
 
             <button><a href="#">edit info</a></button>
-            <button><a href="#">add member</a></button>
+            <button><a href="member_registation.php">add member</a></button>
     </div>
     <div class="view_part">
         <div class="header">
