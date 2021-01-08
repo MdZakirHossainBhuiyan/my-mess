@@ -81,7 +81,7 @@
                 </tr>
             </table>
 
-            <button><a href="#">edit info</a></button>
+            <button><a href="edit_update.php">edit info</a></button>
             <button><a href="member_registration.php">add member</a></button>
     </div>
 
