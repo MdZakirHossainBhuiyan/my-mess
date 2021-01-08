@@ -90,7 +90,7 @@
                 </tr>
             </table>
 
-            <button><a href="#">edit info</a></button>
+            <button><a href="edit_update.php">edit info</a></button>
     </div>
     <section class="change_password">
         <h2>Change Your <span class="highlighter">Password</span></h2>

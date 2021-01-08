@@ -124,7 +124,7 @@
                 </tr>
             </table>
         <?php mysqli_close($con); ?>
-            <button><a href="#">edit info</a></button>
+            <button><a href="edit_update.php">edit info</a></button>
     </div>
     <div class="add_meal">
         <h1>add meal</h1>

@@ -117,7 +117,7 @@
                 </tr>
             </table>
 
-            <button><a href="#">edit info</a></button>
+            <button><a href="edit_update.php">edit info</a></button>
     </div>
     <div class="members_info">
         <?php

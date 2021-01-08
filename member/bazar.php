@@ -120,7 +120,7 @@
                 </tr>
             </table>
 
-            <button><a href="#">edit info</a></button>
+            <button><a href="edit_update.php">edit info</a></button>
     </div>
     <div class="add_bazar">
         <h1>add bazar</h1>
