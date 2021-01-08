@@ -49,6 +49,7 @@
     <?php session_start(); 
         $user_name = $_SESSION['uname'];
         $mess_id = $_SESSION['mid'];
+        $password = $_SESSION['password'];
     ?>
 
     <div class="nav_top">
@@ -93,7 +94,7 @@
                 </tr>
             </table>
 
-            <button><a href="#">edit info</a></button>
+            <button><a href="edit_update.php">edit info</a></button>
             <button><a href="member_registration.php">add member</a></button>
     </div>
     <section>

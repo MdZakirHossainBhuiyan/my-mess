@@ -24,6 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $_SESSION['mid'] = $mid;
         $_SESSION['uname'] = $uname;
         $_SESSION['fname'] = $fname;
+        $_SESSION['password'] = $password;
         header("location:manager/manager_index.php");
     }
     else
