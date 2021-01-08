@@ -123,7 +123,7 @@
                 </tr>
             </table>
 
-            <button><a href="#">edit info</a></button>
+            <button><a href="edit_update.php">edit info</a></button>
     </div>
     <div class="payment_view">
         <h1>Your payment details: </h1>
