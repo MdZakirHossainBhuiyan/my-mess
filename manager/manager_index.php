@@ -16,6 +16,7 @@
         Manager: <?php echo $_SESSION['fname'] ?>
         <a href="manager_index.php">deshboard</a>
         <a href="contact_manager.php">contact</a>
+        <a href="set_payment.php">Set payment</a>
         <a href="view_meal.php">meal</a>
         <a href="view_bazar.php">bazar</a>
         <a href="member_info.php">member</a>

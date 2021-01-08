@@ -158,7 +158,7 @@
         <h1>Your payment details: </h1>
 
         <?php
-            $sql = "select home_rent, utilities, net_bill, bazar, bua, others, date from payment where user_name = '$user_name' limit 1";
+            $sql = "select home_rent, utilities, net_bill, bazar, bua, others, date from set_payment where user_name = '$user_name' limit 1";
             $query = mysqli_query($con, $sql);
             if($row = mysqli_fetch_assoc($query)){
         ?>
