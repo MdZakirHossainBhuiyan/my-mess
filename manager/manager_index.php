@@ -1,3 +1,41 @@
+<?php
+    function depositFunction($mess_id){
+        $bazar = 0;
+        $con = mysqli_connect("localhost","root","","demo");
+        $sql = "select bazar from payment where mess_id = '$mess_id'";
+        $query = mysqli_query($con, $sql);
+        while($row = mysqli_fetch_assoc($query)){
+            $bazar = $bazar + $row['bazar'];
+        }
+
+        return $bazar;
+    }
+
+    function costFunction($mess_id){
+        $cost = 0;
+        $con = mysqli_connect("localhost","root","","demo");
+        $sql = "select price from bazar where mess_id = '$mess_id'";
+        $query = mysqli_query($con, $sql);
+        while($row = mysqli_fetch_assoc($query)){
+            $cost = $cost + $row['price'];
+        }
+
+        return $cost;
+    }
+
+    function mealFunction($mess_id){
+        $meal = 0;
+        $con = mysqli_connect("localhost","root","","demo");
+        $sql = "select total_meal from meal where mess_id = '$mess_id'";
+        $query = mysqli_query($con, $sql);
+        while($row = mysqli_fetch_assoc($query)){
+            $meal = $meal + $row['total_meal'];
+        }
+
+        return $meal;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +48,7 @@
 <body>
     <?php session_start(); 
         $user_name = $_SESSION['uname'];
+        $mess_id = $_SESSION['mid'];
     ?>
 
     <div class="nav_top">
@@ -58,12 +97,43 @@
             <button><a href="member_registration.php">add member</a></button>
     </div>
     <section>
-    
+    <div class="mess_statement">
+        <?php
+            $bazar = depositFunction($mess_id);
+            $cost = costFunction($mess_id);
+            $balance = $bazar - $cost;
+            $meal = mealFunction($mess_id);
+            $meal_rate = $cost/$meal;
+        ?>
+        <table class="mess-table">
+            <caption id="mess-caption">Mess Statement</caption>
+            <tr>
+                <th>Total Deposit </th>
+                <th>:</th>
+                <td><?php echo $bazar."/-"; ?></td>
+            </tr>
+            <tr>
+                <th>Cost </th>
+                <th>:</th>
+                <td><?php echo $cost."/-"; ?></td>
+            </tr>
+            <tr>
+                <th>Balance </th>
+                <th>:</th>
+                <td><?php echo $balance."/-"; ?></td>
+            </tr>
+            <tr>
+                <th>Total Meal</th>
+                <th>:</th>
+                <td><?php echo $meal."/-"; ?></td>
+            </tr>
+            <tr>
+                <th>Meal Rate</th>
+                <th>:</th>
+                <td><?php echo round($meal_rate, 3)."/-"; ?></td>
+            </tr>
+        </table>
+    </div>
     </section>
-
-    <?php
-        echo "Welcome Mr. ".$_SESSION['fname'].". Your mess id ".$_SESSION['mid']." and as a manager your user name is ".$_SESSION['uname']."<br>";
-    ?>
-    
 </body>
 </html>

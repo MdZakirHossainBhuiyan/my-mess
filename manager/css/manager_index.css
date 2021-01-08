@@ -103,3 +103,27 @@ body{
 .manager_info a:hover{
     font-size: 18px;
 }
+
+.mess_statement{
+    width: 900px;
+    height: 300px;
+    box-shadow: 10px 10px 40px gray;
+    margin-top: 100px;
+    margin-left: 50px;
+    float: left;
+    border-radius: 7px;
+}
+
+.mess-table{
+    width: 850px;
+    height: 180px;
+}
+
+#mess-caption{
+    text-align: center;
+    height: 50px;
+    padding-top: 20px;
+    font-size: 25px;
+    text-transform: uppercase;
+    color: orange;
+}

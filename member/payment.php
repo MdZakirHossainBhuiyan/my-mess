@@ -169,7 +169,7 @@
                     <th>Net bill: </th>
                     <th>Bazar: </th>
                     <th>Bua: </th>
-                    <th>Last updated date: </th>
+                    <th>Last date: </th>
                     
                 </tr>
                 <tr>
